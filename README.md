@@ -1,6 +1,36 @@
-# Getting Started with Create React App
+# Marketplace app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Marketplace is a simple app the fetches product from a third party api, and users can purchase them the products with credits.
+
+The app is hosted on on here [here](https://markeyplace.netlify.com)
+
+## Technologies used
+
+- [React](https://reactjs.org/) - Frontend UI library
+- [Typescript](https://www.typescriptlang.org/) - Strongly typed programming language built on Javascript
+- [Material UI](https://mui.com/material-ui) - A collection of UI tools to helps new features faster
+- [RTK Query](https://redux-toolkit.js.org/tutorials/rtk-query) - A data fetching and caching tool. It is an addon to Redux toolkit (state management library)
+- [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware) - Node.js proxy middle. This solves the CORS error from the api
+
+## Testing
+
+**Unit tests**
+Most of the components were tested separately to ensure that they work as expected. The tested components are
+
+- Product Card
+- Cart
+
+**Integration tests**
+
+- In order to prevent accidental leaks between tests, a separate Redux store instance is created for every test, rather than reusing the same store instance and resetting the state.
+- I use `msw` to intercept network request during the test and return a mock response after 150ms
+
+## Install
+
+You need node version `>=16.0.0` to run the app
+
+`npm install`
+Install all dependencies
 
 ## Available Scripts
 
@@ -23,24 +53,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

@@ -1,0 +1,17 @@
+.nav {
+  height: 2rem;
+  background-color: rgb(33, 33, 33);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+header {
+  width: 100%;
+}
+
+.cartIcon {
+  cursor: pointer;
+  gap: 1rem;
+}
