@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
@@ -19,7 +19,7 @@ export const Cart: FC<CartProps> = ({
   toggleCartDrawer,
 }) => {
   const total = cartItems.reduce((acc, item) => acc + item.credits, 0);
-
+  
   return (
     <div>
       <Drawer anchor="right" open={isOpen} onClose={toggleCartDrawer}>
@@ -103,12 +103,6 @@ export const Cart: FC<CartProps> = ({
                         </Box>
 
                         <Box mt={1}>
-                          <Typography
-                            variant="body2"
-                            sx={{ fontWeight: "bold" }}
-                          >
-                            Product Description
-                          </Typography>
                           <Typography variant="body2">
                             {product.description}
                           </Typography>
@@ -119,7 +113,7 @@ export const Cart: FC<CartProps> = ({
                           sx={{ justifyContent: "flex-end" }}
                           pr={2}
                         >
-                          <Typography variant="body1">
+                          <Typography variant="body1" fontWeight="bold">
                             {product.credits} credits
                           </Typography>
                         </Box>
@@ -148,7 +142,7 @@ export const Cart: FC<CartProps> = ({
                   mb={2}
                   data-testid="total"
                 >
-                  <Typography>Total: </Typography>
+                  <Typography>Total:</Typography>
                   <Typography color="primary" sx={{ fontWeight: "bold" }}>
                     {total} credits
                   </Typography>
@@ -156,7 +150,7 @@ export const Cart: FC<CartProps> = ({
                 <Box mb={1}>
                   <Button
                     variant="contained"
-                    data-testid='buyBtn'
+                    data-testid="buyBtn"
                     fullWidth
                     onClick={handleBuyItems}
                   >

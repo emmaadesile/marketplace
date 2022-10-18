@@ -18,7 +18,6 @@ export const Product: React.FC<ProductCardProps> = ({
       <CardMedia
         component="img"
         height="100"
-        width="300"
         image={product.metadata.blockThumbnailUrl || ""}
         alt="product-thumbnail"
       />

@@ -14,7 +14,7 @@ export const Navigation: FC<NavProps> = ({
 }) => {
   return (
     <header>
-      <Box className="nav">
+      <nav>
         <Box data-testid="logo">
           <Logo />
         </Box>
@@ -36,7 +36,7 @@ export const Navigation: FC<NavProps> = ({
             <ShoppingCartIcon sx={{ fill: "#fff" }} />
           </Badge>
         </Box>
-      </Box>
+      </nav>
     </header>
   );
 };

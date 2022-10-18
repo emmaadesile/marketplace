@@ -39,7 +39,7 @@ export const ProductsView: FC<{}> = () => {
   }
 
   return (
-    <Box mt={10} className="products-view">
+    <Box mt={10} className="products-view" p={3}>
       {isLoading && <SkeletonLoader />}
       {data && data?.length > 0 && (
         <Grid container spacing={2}>
