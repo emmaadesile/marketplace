@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
@@ -10,10 +10,36 @@ import { Product, ProductProps } from "../../components/product";
 import { addItemToCart } from "../../features/cart/cartSlice";
 import { useAppDispatch } from "../../hooks/index";
 import { SkeletonLoader } from "../../components/skeleton";
+import { Input } from "../../components/input";
 
 export const ProductsView: FC<{}> = () => {
   const { data, isLoading, error } = useGetProductsQuery({});
   const dispatch = useAppDispatch();
+
+  const [inputValue, setInputValue] = useState<string>("");
+  const [filteredData, setFilteredData] = useState<ProductProps[] | undefined>(
+    data
+  );
+
+  useEffect(() => {
+    let userFilteredData: ProductProps[] = [];
+
+    if (data && data.length > 0) {
+      userFilteredData = data;
+
+      if (inputValue) {
+        userFilteredData = data?.filter(
+          (product) => product.name.includes(inputValue)
+        );
+      }
+    }
+    setFilteredData(userFilteredData);
+
+  }, [inputValue, data]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
 
   const handleAddToCart = (item: ProductProps) => {
     const {
@@ -41,9 +67,10 @@ export const ProductsView: FC<{}> = () => {
   return (
     <Box mt={10} className="products-view" p={3}>
       {isLoading && <SkeletonLoader />}
-      {data && data?.length > 0 && (
+      <Input value={inputValue} handleChange={handleInputChange} />
+      {filteredData && filteredData?.length > 0 && (
         <Grid container spacing={2}>
-          {data.map((product: ProductProps) => (
+          {filteredData.map((product: ProductProps) => (
             <Grid
               item
               lg={3}

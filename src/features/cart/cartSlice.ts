@@ -9,7 +9,7 @@ type CartState = {
 };
 
 const initialState: CartState = {
-  userCredits: 10,
+  userCredits: 10000,
   cartItems: [],
 };
 

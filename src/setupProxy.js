@@ -5,6 +5,7 @@ module.exports = function (app) {
     "/marketplace/blocks",
     createProxyMiddleware({
       target: "https://api.up42.com",
+      changeOrigin: true,
     })
   );
 };

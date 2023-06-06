@@ -70,7 +70,7 @@ export const Cart: FC<CartProps> = ({
               </Box>
             </Box>
             <Box role="presentation">
-              <List>
+              <List sx={{marginBottom: '6rem'}}>
                 {cartItems.map((product, index) => (
                   <Box
                     p={2}

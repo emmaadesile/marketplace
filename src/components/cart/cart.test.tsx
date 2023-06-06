@@ -57,7 +57,7 @@ describe("Cart component", () => {
     // total credits
     const total = cartItems.reduce((acc, item) => acc + item.credits, 0);
     expect(screen.getByTestId("total")).toHaveTextContent(
-      `Total: ${total} credits`
+      `Total:${total} credits`
     );
 
     // delete item

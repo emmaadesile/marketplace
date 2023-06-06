@@ -5,7 +5,7 @@ import { NavProps } from "./nav.props";
 import useEvent from "@testing-library/user-event";
 
 const navProps: NavProps = {
-  userCredits: 10,
+  userCredits: 10000,
   cartItemsCount: 0,
   toggleCartDrawer: jest.fn(),
 };
@@ -19,7 +19,7 @@ test("render navigation component", async () => {
 
   // user credits
   expect(screen.getByTestId("user-credits")).toHaveTextContent(
-    /total credits: 10.000/i
+    /total credits: 10000/i
   );
 
   // cart icon

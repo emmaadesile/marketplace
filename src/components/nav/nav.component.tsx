@@ -25,7 +25,7 @@ export const Navigation: FC<NavProps> = ({
           alignItems="center"
         >
           <Typography variant="body1" color="white" data-testid="user-credits">
-            Total Credits: {userCredits.toFixed(3)}
+            Total Credits: {userCredits}
           </Typography>
           <Badge
             badgeContent={cartItemsCount}
